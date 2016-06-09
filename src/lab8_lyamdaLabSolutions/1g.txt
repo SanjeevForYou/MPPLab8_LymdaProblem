@@ -1,0 +1,18 @@
+We can use funtional interface Predicate. Because it has, one abstract method test which take one object and return boolean valyue
+as equals method do.
+
+	public boolean myMethod(Employee emp)
+	{
+//	   this.equals(obj);  this::equals
+		Predicate<Employee> p = this::equals;
+		return p.test(emp);
+	}
+
+@Override
+	public boolean equals(Object obj)
+	{
+		if(obj== null) return false;
+		if(obj.getClass() != this.getClass()) return false;
+		Employee emp = (Employee) obj;
+		return this.getName() == emp.getName();
+	}
